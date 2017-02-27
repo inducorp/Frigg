@@ -3,6 +3,7 @@
   "name": "frigg",
   "main": "main.js",
   "scripts": {
+    "dev": "webpack-dev-server --content-base dist/",
     "build": "webpack"
   },
   "devDependencies": {
@@ -18,7 +19,7 @@
     "sass-loader": "^6.0.2",
     "style-loader": "^0.13.2",
     "webpack": "^2.2.1",
-    "webpack-node-externals": "latest"
+    "webpack-dev-server": "^2.4.1"
   },
   "dependencies": {
     "normalize.css": "^5.0.0",
