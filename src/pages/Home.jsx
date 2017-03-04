@@ -1,16 +1,14 @@
 import React, {Component} from 'react';
 
-require('./App.scss');
-
-export default class App extends Component {
+export default class Home extends Component {
     constructor(props) {
         super(props);
     }
 
     render() {
         return (
-            <div className="layout-app">
-                {this.props.children}
+            <div className="pages-home">
+                page-home
             </div>
         )
     }

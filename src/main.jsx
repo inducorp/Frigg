@@ -1,8 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
 
-import App from './layouts/App.jsx';
+import {routes} from './routes.jsx';
 
 require('./main.scss');
 
-render(<App/>, document.getElementById('root'));
+render(routes(), document.getElementById('root'));
