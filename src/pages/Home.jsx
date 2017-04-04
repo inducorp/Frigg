@@ -1,15 +1,19 @@
 import React, {Component} from 'react';
 
-export default class Home extends Component {
-    constructor(props) {
-        super(props);
-    }
+import AppLayout from 'layouts/App';
 
-    render() {
-        return (
-            <div className="pages-home">
-                page-home
-            </div>
-        )
-    }
-}
+export default class HomePage extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+        <AppLayout>
+          <div className="pages-app">
+            home
+          </div>
+        </AppLayout>
+    );
+  }
+};

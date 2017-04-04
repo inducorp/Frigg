@@ -1,15 +1,16 @@
 import React from 'react';
-import {Router, Route, IndexRoute, browserHistory} from 'react-router';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
-import AppLayout from 'layouts/App';
 import HomePage from 'pages/Home';
 import AppPage from 'pages/App';
+import NotFoundPage from 'pages/NotFound';
 
 export const routes = () => (
-    <Router history={browserHistory}>
-        <Route path="/" component={AppLayout}>
-            <IndexRoute component={HomePage}/>
-            <Route path="app" component={AppPage}/>
-        </Route>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={HomePage}/>
+        <Route path="/app" component={AppPage}/>
+        <Route component={NotFoundPage}/>
+      </Switch>
     </Router>
 );

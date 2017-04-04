@@ -1,36 +1,55 @@
-import React, {Component} from 'react';
-
-import TimeSelector from 'components/TimeSelector';
-import PauseButton from 'components/PauseButton';
-
 require('./App.scss');
+import React, {Component} from 'react';
+import moment from 'moment';
 
-export default class App extends Component {
-    constructor(props) {
-        super(props);
-    }
+import AppLayout from 'layouts/App';
+import AppButton from 'components/app/Button';
+import TimeSelector from 'components/app/TimeSelector';
 
-    render() {
-        return (
-            <div className="pages-app">
-                <header>
-                    <div>
-                        <TimeSelector/>
-                    </div>
-                </header>
+export default class AppPage extends Component {
+  constructor(props) {
+    super(props);
 
-                <main>
-                    <PauseButton/>
-                </main>
+    this.state = {
+      paused: null,
+      started: false,
+      startTime: moment().hour(0).minutes(10).seconds(0),
+    };
 
-                <footer>
-                    Time 1 <br/>
-                    Time 2 <br/>
-                    Time 3 <br/>
-                    Time 4 <br/>
-                    Time 5
-                </footer>
-            </div>
-        )
-    }
-}
+    this.handleTimeChange = this.handleTimeChange.bind(this);
+    this.handleStateChange = this.handleStateChange.bind(this);
+  }
+
+  handleTimeChange(time) {
+    this.setState({startTime: time});
+  }
+
+  handleStateChange(data) {
+    this.setState(data);
+  }
+
+  render() {
+    const {paused, started, startTime} = this.state;
+
+    return (
+        <AppLayout>
+          <div className="pages-app">
+            <header>
+              <TimeSelector time={startTime}
+                            changeHandler={this.handleTimeChange}/>
+            </header>
+
+            <main>
+              <AppButton paused={paused}
+                         started={started}
+                         changeHandler={this.handleStateChange}/>
+            </main>
+
+            <footer>
+              <div>times</div>
+            </footer>
+          </div>
+        </AppLayout>
+    );
+  }
+};
