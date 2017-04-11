@@ -1,5 +1,5 @@
 @import "../node_modules/normalize.css/normalize.css";
-@import "../node_modules/slick-carousel/slick/slick";
+
 
 *, *:before, *:after {
   box-sizing: inherit;
@@ -16,6 +16,7 @@ body {
   height: 100%;
   font: 1rem/1.618 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background: linear-gradient(to bottom, #00A388 0%, #79BD8F 100%);
+  margin: 0;
 }
 
 #root {
